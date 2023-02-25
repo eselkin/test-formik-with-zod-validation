@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { FormikHelpers, useFormik } from "formik";
-import { toFormikValidationSchema } from "zod-formik-adapter";
+import { toFormikValidate, toFormikValidationSchema } from "zod-formik-adapter";
 import FormGroup from "@mui/material/FormGroup";
 import TextField from "@mui/material/TextField";
 import Card from "@mui/material/Card";
@@ -42,7 +42,7 @@ function App() {
   const { handleSubmit, touched, values, errors, handleChange } = useFormik({
     initialValues: { firstName: "", lastName: "", email: "", phone: "" },
     onSubmit: onSubmit,
-    validationSchema: toFormikValidationSchema(Schema),
+    validate: toFormikValidate(Schema),
   });
 
   return (
